@@ -1,0 +1,55 @@
+﻿{% extends 'base.html' %}
+{% block body %}
+{% load staticfiles %}
+<style type="text/css" >
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+    li {
+        float: left;
+    }
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 16px;
+        text-decoration: none;
+    }
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar menu-lateral">
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                    <a class="nav-link " href="/produtos/add" style="background-color: transparent; color: #663300; text-align:left;">Adicional <span class="sr-only">(current)</span></a>
+                    <a class="nav-link active" href="/produtos/novo_add" style="background-color: #663300; text-align:left;"> Novo <span class="sr-only">(current)</span></a>
+                    <a class="nav-link " href="/produtos/editar_add" style="background-color: transparent; color: #663300; text-align:left;"> Editar <span class="sr-only">(current)</span></a>
+                    
+                </li>
+            </ul>
+         </nav>
+        </div>
+    </div>
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3 main-fundo">
+    <section class="row text-center placeholders">
+        <div class="jumbotron busca">
+            <div class="container">
+                 <form method="POST" class="col-md-12 col-md-offset-3">
+                    {% csrf_token %}
+                     Nome : <input class="form-control col-md-6 " type="text" name="nome" autofocus required />
+                    <br />
+                    Valor : <input class="form-control col-md-4 " type="number" name="valor" step="0.01" required/>
+                    <br />
+                    Imagem : <input class="form-control col-md-6 " type="text" name="img"  required />
+                     <br />
+                    <button class="btn btn-primary" style="background-color: #663300; border:none;" type="submit">Salvar</button>
+                    
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+        {% endblock %}

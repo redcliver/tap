@@ -1,0 +1,37 @@
+﻿{% extends 'base.html' %}
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar menu-lateral">
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                    <a class="nav-link " href="/pedidos" style="background-color: transparent; color: #663300;">Pedidos <span class="sr-only">(current)</span></a>
+                    <a class="nav-link active" href="#" style="background-color: #663300;"> Finalizar <span class="sr-only">(current)</span></a>
+
+                </li>
+            </ul>
+         </nav>
+        </div>
+    </div>
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3 main-fundo">
+    <section class="row text-center placeholders">
+        <div class="jumbotron busca">
+            <div class="container">
+                <h3>Pagamento 
+                </h3>
+                <hr />
+                <form method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="cmd_id" value="{{cmd_obj.id}}" />
+                    <div class="text-center col align-self-center form-group">
+                        <h2 class="text-center bg-dark text-warning">Total : R$ {{cmd_obj.total}}</h2><br /><br /><br />
+                        Recebido : <input class=" col-md-4 " style="border-radius:3px; border-style:none;" type="number" name="recebido" step="0.01" required/>
+                        <br /><br />
+                        <button class="btn btn-primary float" style="background-color: #663300; border:none;" type="submit" >Finalizar</button>
+                    </div>
+                 </form>
+            </div>
+        </div>
+    </section>
+</main>
+        {% endblock %}

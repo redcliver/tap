@@ -1,0 +1,55 @@
+﻿{% extends 'base.html' %}
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar menu-lateral">
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                    <a class="nav-link " href="/pedidos" style="background-color: transparent; color: #663300;">Pedidos <span class="sr-only">(current)</span></a>
+                    <a class="nav-link " href="/pedidos/combinados" style="background-color: transparent; color: #663300;"> Combinados <span class="sr-only">(current)</span></a>
+                    <a class="nav-link " href="/pedidos/montar" style="background-color: transparent; color: #663300;"> Montar <span class="sr-only">(current)</span></a>
+                    <a class="nav-link active" href="/pedidos/bebidas" style="background-color: #663300;"> bebidas <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+         </nav>
+        </div>
+    </div>
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3 main-fundo">
+    <section class="row text-center placeholders">
+        <div class="jumbotron busca">
+            <div class="container">
+                <h3>Bebidas
+                </h3>
+                <hr />
+                <form method="POST" action="/pedidos/finalizar">
+                    {% csrf_token %}
+                    <input type="hidden" name="cmd_id" value="{{cmd_id}}" />
+                    <button class="fundo1" style="background-color:transparent; border:none;" type="submit" name="bebida" value="coca"><img src="../../static/img/coca.png" /></button>
+                    <button class="fundo1" style="background-color:transparent; border:none;" type="submit" name="bebida" value="fanta"><img src="../../static/img/fanta.png" /></button>
+                    <button class="fundo1" style="background-color:transparent; border:none;" type="submit" name="bebida" value="sukita"><img src="../../static/img/sukita.png" /></button>
+                    <button class="fundo1" style="background-color:transparent; border:none;" type="submit" name="bebida" value="pepsi"><img src="../../static/img/pepsi.png" /></button>
+                    <button class="fundo1" style="background-color:transparent; border:none;" type="submit" name="bebida" value="soda"><img src="../../static/img/soda.png" /></button>
+                    <button class="fundo1" style="background-color:transparent; border:none;" type="submit" name="bebida" value="coca600"><img src="../../static/img/coca600.png" /></button>
+                    <button class="fundo1" style="background-color:transparent; border:none;" type="submit" name="bebida" value="fanta600"><img src="../../static/img/fanta600.png" /></button>
+                    <button class="fundo1" style="background-color:transparent; border:none;" type="submit" name="bebida" value="frutas"><img src="../../static/img/frutas.png" /></button>
+                    <button class="fundo1" style="background-color:transparent; border:none;" type="submit" name="bebida" value="h2o"><img src="../../static/img/h2o.png" /></button>
+                    <button class="fundo1" style="background-color:transparent; border:none;" type="submit" name="bebida" value="aquarius"><img src="../../static/img/aquarius.png" /></button>
+                    <button class="fundo1" style="background-color:transparent; border:none;" type="submit" name="bebida" value="aguasgas"><img src="../../static/img/aguasgas.png" /></button>
+                    <button class="fundo1" style="background-color:transparent; border:none;" type="submit" name="bebida" value="aguacgas"><img src="../../static/img/aguacgas.png" /></button>
+                    <button class="fundo1" style="background-color:transparent; border:none;" type="submit" name="bebida" value="laranja"><img src="../../static/img/laranja.png" /></button>
+                    <button class="fundo1" style="background-color:transparent; border:none;" type="submit" name="bebida" value="laranjabeterraba"><img src="../../static/img/laranjabeterraba.png" /></button>
+                    <button class="fundo1" style="background-color:transparent; border:none;" type="submit" name="bebida" value="abacaxi"><img src="../../static/img/abacaxi.png" /></button>
+                    <button class="fundo1" style="background-color:transparent; border:none;" type="submit" name="bebida" value="abacaxihortela"><img src="../../static/img/abacaxihortela.png" /></button>
+                    <button class="fundo1" style="background-color:transparent; border:none;" type="submit" name="bebida" value="limao"><img src="../../static/img/limao.png" /></button>
+                    <button class="fundo1" style="background-color:transparent; border:none;" type="submit" name="bebida" value="couve"><img src="../../static/img/couve.png" /></button>
+                    <button class="fundo1" style="background-color:transparent; border:none;" type="submit" name="bebida" value="cafe"><img src="../../static/img/cafe.png" /></button>
+                    <button class="fundo1" style="background-color:transparent; border:none;" type="submit" name="bebida" value="expresso"><img src="../../static/img/expresso.png" /></button>
+                    <button class="fundo1" style="background-color:transparent; border:none;" type="submit" name="bebida" value="mate"><img src="../../static/img/mate.png" /></button>
+                    <button class="fundo1" style="background-color:transparent; border:none;" type="submit" name="bebida" value="verde"><img src="../../static/img/verde.png" /></button>
+                    <button class="fundo1" style="background-color:transparent; border:none;" type="submit" name="bebida" value="fvermelha"><img src="../../static/img/fvermelha.png" /></button>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+        {% endblock %}

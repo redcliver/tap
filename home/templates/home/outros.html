@@ -1,0 +1,32 @@
+﻿{% extends 'base.html' %}
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar menu-lateral">
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/outros" style="background-color: #663300;">Outros <span class="sr-only">(current)</span></a>
+                    <a class="nav-link " href="/produtos" style="background-color: transparent; color: #663300;"> Produto <span class="sr-only">(current)</span></a>
+
+                </li>
+            </ul>
+         </nav>
+        </div>
+    </div>
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3 main-fundo">
+    <section class="row text-center placeholders">
+        <div class="jumbotron busca">
+            <div class="container">
+                <h3>Outros
+                </h3>
+                <hr />
+                <form >
+                    <button class="fundo1" style="background-color:transparent; border:none;" type="submit" formaction="/produtos"><img src="../../static/img/produtos.png" /></button>
+                    <button class="fundo1" style="background-color:transparent; border:none;" type="submit" formaction="/produtos/base"><img src="../../static/img/base.png" /></button>
+                    <button class="fundo1" style="background-color:transparent; border:none;" type="submit" formaction="/produtos/add"><img src="../../static/img/add.png" /></button>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+        {% endblock %}

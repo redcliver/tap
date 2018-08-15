@@ -1,0 +1,48 @@
+﻿{% extends 'base.html' %}
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar menu-lateral">
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                    <a class="nav-link " href="/pedidos" style="background-color: transparent; color: #663300;">Pedidos <span class="sr-only">(current)</span></a>
+                    <a class="nav-link " href="/pedidos/combinados" style="background-color: transparent; color: #663300;"> Combinados <span class="sr-only">(current)</span></a>
+                    <a class="nav-link active" href="/pedidos/montar" style="background-color: #663300;"> Montar <span class="sr-only">(current)</span></a>
+                    <a class="nav-link " href="/pedidos/bebidas" style="background-color: transparent; color: #663300;"> bebidas <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+         </nav>
+        </div>
+    </div>
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3 main-fundo">
+    <section class="row text-center placeholders">
+        <div class="jumbotron busca">
+            <div class="container">
+                <h3>Montar
+                </h3>
+                <hr />
+                <h4>Bases</h4>
+                <form method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="cmd_id" value="{{cmd_id}}" />
+                    {% for bases in bases1 %}
+                            <label>
+                                <input type="checkbox" name="base" value="{{bases.id}}"/>
+                                <img src="../../static/img/{{bases.img}}.png" />
+                            </label>
+                    {% endfor %}
+                    <hr />
+                    <h4>Adicinais</h4>
+                    {% for adicional in adds1 %}
+                            <label>
+                                <input type="checkbox" name="adicional" value="{{adicional.id}}"/>
+                                <img src="../../static/img/{{adicional.img}}.png" />
+                            </label>
+                    {% endfor %}
+                    <button class="btn btn-primary float-right" style="background-color: #663300; border:none;" type="submit">Finalizar</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+        {% endblock %}
