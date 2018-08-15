@@ -1,0 +1,1 @@
+web: gunicorn tapiocaria.wsgi --log-file - 

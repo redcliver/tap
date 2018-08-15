@@ -1,8 +1,0 @@
-protect_pip_from_modification_on_windows
-absolute_import
-InstallRequirement
-Command
-parse_requirements
-canonicalize_name
-UninstallCommand
-InstallationError
