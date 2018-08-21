@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^caixa/', include('caixa.urls')),
     url(r'^produtos/', include('produtos.urls')),
     url(r'^extrato/', include('extrato.urls')),
+    url(r'^contas/', include('contas.urls')),
     url(r'^contact$', app.views.contact, name='contact'),
     url(r'^about', app.views.about, name='about'),
     url(r'^login/$',

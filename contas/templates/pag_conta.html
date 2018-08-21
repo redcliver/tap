@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block body %}
+{% load staticfiles %}
+<style type="text/css" >
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+    li {
+        float: left;
+    }
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 16px;
+        text-decoration: none;
+    }
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar menu-lateral">
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                    <a class="nav-link " href="/contas" style="background-color: transparent; color: #663300; text-align:left;">Contas <span class="sr-only">(current)</span></a>
+                    <a class="nav-link " href="/contas/nova_conta" style="background-color: transparent; color: #663300; text-align:left;"> Nova <span class="sr-only">(current)</span></a>
+                    <a class="nav-link " href="/contas/editar_conta" style="background-color: transparent; color: #663300; text-align:left;"> Editar <span class="sr-only">(current)</span></a>
+                    <a class="nav-link active" href="/contas/pagar" style="background-color: #663300; text-align:left;"> Pagar <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+         </nav>
+        </div>
+    </div>
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3 main-fundo">
+    <section class="row text-center placeholders">
+        <div class="jumbotron busca">
+            <div class="container">
+                 <form method="POST">
+                     {% csrf_token %}
+                    <div class="form-row">
+                    <div class="form-group col-md-10">
+                        <label for="inputName">Conta<strong>*</strong></label>
+                        <select autofocus name="cont_id" class="form-control">
+                            <option disabled selected> -- Contas -- </option>
+                            {% for conta in conts %}
+                            <option value="{{conta.id}}">{{conta.nome}} -- Venc. {{conta.data_venc|date:'d/m/Y'}} -- Valor: R${{conta.valor}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-10">
+                            <button type="submit" class="btn btn-primary float-right" style="background-color: #663300; border:none">Pagar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+        {% endblock %}

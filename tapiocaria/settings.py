@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'caixa',
     'produtos',
     'extrato',
+    'contas',
     # Add your apps here to enable them
     'django.contrib.admin',
     'django.contrib.auth',

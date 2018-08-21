@@ -14,4 +14,4 @@ class caixa_geral(models.Model):
     data = models.DateTimeField(default=timezone.now)
     
     def __str__(self):
-        return self.nome
+        return self.id
