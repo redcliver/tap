@@ -16,7 +16,8 @@
         <div class="jumbotron busca">
             <div class="container">
                 {% if msg %}
-                    <h3>{{msg}}</h3>
+                    <h3>{{msg}}</h3><br />
+                    <h3>Temos {{contagem}} contas vencidas;</h3>
                     {% if novo_age %}
                         <hr />
                         <h4>Paciente: {{novo_age.aluno}}</h4>
