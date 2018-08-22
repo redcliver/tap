@@ -126,7 +126,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'America/Campo_Grande'
+TIME_ZONE = 'Brazil/West'
 
 USE_I18N = True
 
