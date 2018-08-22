@@ -2,13 +2,14 @@
   "ExpandedNodes": [
     "",
     "\\caixa",
-    "\\contas",
     "\\contas\\templates",
-    "\\home",
     "\\home\\templates",
     "\\home\\templates\\home",
+    "\\pedidos",
+    "\\pedidos\\templates",
+    "\\produtos\\templates",
     "\\tapiocaria"
   ],
-  "SelectedNode": "\\tapiocaria\\settings.py",
+  "SelectedNode": "\\pedidos\\views.py",
   "PreviewInSolutionExplorer": false
 }
