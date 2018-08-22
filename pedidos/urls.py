@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^finalizar$', views.finalizar),
     url(r'^pagamento$', views.pagamento),
     url(r'^dinheiro$', views.dinheiro),
-    url(r'^cartao$', views.cartao),
+    url(r'^cartao_debito$', views.cartao_debito),
+    url(r'^cartao_credito$', views.cartao_credito),
     url(r'^final$', views.final),
     ]

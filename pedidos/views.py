@@ -326,13 +326,29 @@ def dinheiro(request):
     else:
         return render(request, 'home/erro.html', {'title':'Erro'})
 
-def cartao(request):
+def cartao_debito(request):
     if request.user.is_authenticated():
         cmd_id = request.GET.get('cmd_id')
         cmd_obj = comanda.objects.filter(id=cmd_id).get()
-        cmd_obj.pagamento = "Cartao"
+        cmd_obj.pagamento = "Cartao Debito"
         cmd_obj.save()
-        descri = "Comanda n "+ str(cmd_obj.id) +"."
+        descri = "Comanda n "+ str(cmd_obj.id) +", R$"+str(cmd_obj.total)+"."
+        ultimo_cx = caixa_geral.objects.latest('id')
+        total_cx = ultimo_cx.total + cmd_obj.total
+        add_cx = caixa_geral(tipo=1, total=total_cx, desc=descri)
+        add_cx.save()
+        msg = "Pedido concluido com sucesso!"
+        return render(request, 'home/home.html', {'title':'Home', 'msg':msg})
+    else:
+        return render(request, 'home/erro.html', {'title':'Erro'})
+
+def cartao_credito(request):
+    if request.user.is_authenticated():
+        cmd_id = request.GET.get('cmd_id')
+        cmd_obj = comanda.objects.filter(id=cmd_id).get()
+        cmd_obj.pagamento = "Cartao Credito"
+        cmd_obj.save()
+        descri = "Comanda n "+ str(cmd_obj.id) +", R$"+str(cmd_obj.total)+"."
         ultimo_cx = caixa_geral.objects.latest('id')
         total_cx = ultimo_cx.total + cmd_obj.total
         add_cx = caixa_geral(tipo=1, total=total_cx, desc=descri)
