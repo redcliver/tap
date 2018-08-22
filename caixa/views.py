@@ -33,7 +33,7 @@ def entrada(request):
             valor_ret = request.POST.get('entrada')
             desc = request.POST.get('motivo')
             total = caixa.total + Decimal(valor_ret)
-            nova_op = caixa_geral(total=total, tipo=2, desc=desc)
+            nova_op = caixa_geral(total=total, tipo=1, desc=desc)
             nova_op.save()
             msg = "Entrada registrada com sucesso."
             return render(request, 'home/home.html', {'title':'Home', 'msg':msg})
@@ -73,11 +73,11 @@ def fechar(request):
             total = caixa.total
         if request.method == 'POST' and request.POST.get('retirada') != None:
             valor_ret = request.POST.get('retirada')
-            desc = 'Fechamento'
             total = caixa.total - Decimal(valor_ret)
+            desc = "Fechamento, R$-"+str(valor_ret)+""            
             nova_op = caixa_geral(total=total, tipo=2, desc=desc)
             nova_op.save()
-            msg = "Fechamento concluido com sucesso."
+            msg = "Fechamento concluído com sucesso, total em caixa R$ "+str(total)+""
             return render(request, 'home/home.html', {'title':'Home', 'msg':msg})
         return render(request, 'fechar.html', {'title':'Fechar caixa', 'total':total})
     else:
