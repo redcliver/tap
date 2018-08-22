@@ -1,7 +1,14 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\caixa",
+    "\\contas",
+    "\\contas\\templates",
+    "\\home",
+    "\\home\\templates",
+    "\\home\\templates\\home",
+    "\\tapiocaria"
   ],
-  "SelectedNode": "\\requirements.txt",
+  "SelectedNode": "\\tapiocaria\\settings.py",
   "PreviewInSolutionExplorer": false
 }
